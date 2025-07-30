@@ -13,9 +13,9 @@ export default {
     },
     methods: {
         tellParentChangeName() {
-            this.$emit('change-name');
-        }
+            this.$emit('change-name')
+        },
     }
-
+ 
 }
 </script>

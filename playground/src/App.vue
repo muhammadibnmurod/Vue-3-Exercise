@@ -67,7 +67,7 @@ export default {
 </script>
 
 <template>
-  <userCard :user="refinedUserData" @change-name="changeName" />
+  <userCard :user="refinedUserData" @change-name="chnage" />
   <base-counter :increment="incrementCount" />
   <hr />
   <p v-if="message.length % 2 === 0">Even: {{ message.toUpperCase() }}</p>

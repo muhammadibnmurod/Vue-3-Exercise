@@ -16,3 +16,4 @@ By participating along with us in the workshop, you'll learn:
 Ben Hong is a Vue.js Core Team member and a Senior Staff Developer Experience (DX) Engineer at Netlify. He is also a developer / psychologist / educator hybrid who is passionate about creating products that help to empower people with new skills and knowledge regardless of their background.
 
 You can learn more about his work at https://www.bencodezen.io.
+# Vue-3-Exercise

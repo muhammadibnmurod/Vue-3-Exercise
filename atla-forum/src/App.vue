@@ -1,9 +1,10 @@
 <script>
 import BenderStatistics from './components/BenderStatistics.vue'
 import CharacterCard from './components/CharacterCard.vue'
+import FavoriteCharacters from './components/FavoriteCharacter.vue'
 export default {
   components: {
-    BenderStatistics, CharacterCard,
+    BenderStatistics, CharacterCard, FavoriteCharacters,
   },
   data: () => ({
     newCharacter: {
@@ -28,12 +29,14 @@ export default {
         element: ['Water'],
       },
     ],
-    favoriteList: [],
   }),
   methods: {
     addNewCharacter() {
       this.characterList.push(this.newCharacter)
       this.newCharacter = { name: '' }
+    },
+    addFavoriteCharacter(payload) {
+      this.favoriteList.push(payload)
     },
   },
 }
@@ -45,17 +48,11 @@ export default {
   <p v-if="characterList.length === 0">There are no characters</p>
   <ul v-else-if="characterList.length % 2 === 0">
     <li v-for="(character, index) in characterList" :key="`even-character-${index}`">
-      <CharacterCard :character="character" />
+      <CharacterCard :character="character" @favorite="addFavoriteCharacter" />
     </li>
   </ul>
   <p v-else>There are odd characters!</p>
-  <h2>Favorite Characters</h2>
-  <ul v-if="favoriteList.length > 0">
-    <li v-for="(character, index) in favoriteList" :key="`odd-character-${index}`">
-      {{ character }}
-    </li>
-  </ul>
-  <p v-else>No favorite characters yet!</p>
+  <FavoriteCharacters />
   <h2>New Character</h2>
   <pre>{{ newCharacter }}</pre>
   <label for="character-name">Name</label>

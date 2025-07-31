@@ -8,8 +8,8 @@ export default {
     },
     emits: ['favorite'],
     methods: {
-        favoriteCharacter(character) {
-            this.favoriteList.push(character)
+        favoriteCharacter() {
+            this.$emit('favorite', this.character)
         },
     }
 }
@@ -18,6 +18,6 @@ export default {
 <template>
     <div>
         <p>{{ character.name }}</p>
-        <button>⭐ Favorite</button>
+        <button @click="favoriteCharacter">⭐ Favorite</button>
     </div>
 </template>

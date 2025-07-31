@@ -1,38 +1,40 @@
 <script>
 import userCard from './components/user-card.vue'
-import BaseCounter from "./components/BaseCounter.vue";
+import BaseCounter from './components/BaseCounter.vue'
+import BaseButton from './components/base-button.vue'
 export default {
   components: {
     BaseCounter,
     userCard,
+    BaseButton,
   },
   data() {
     return {
-      message: "Hello it works",
+      message: 'Hello it works',
       listOfNumbers: [
         {
           name: 1,
-          id: "6a887cd2-f0bf-4321-b192-92016f82a883",
+          id: '6a887cd2-f0bf-4321-b192-92016f82a883',
           list: [1, 2, 3],
         },
         {
           name: 2,
-          id: "8d14d90b-2d47-473e-8293-d5c324111d0d",
+          id: '8d14d90b-2d47-473e-8293-d5c324111d0d',
           list: [1, 2, 3],
         },
         {
           name: 3,
-          id: "cd806d65-2309-4625-9104-dcd636cd79b5",
+          id: 'cd806d65-2309-4625-9104-dcd636cd79b5',
           list: [1, 2, 3],
         },
         {
           name: 4,
-          id: "00c939cd-fbf4-46d0-8e61-0bc2ce8a5332",
+          id: '00c939cd-fbf4-46d0-8e61-0bc2ce8a5332',
           list: [1, 2, 3],
         },
         {
           name: 5,
-          id: "295a8170-59c1-4462-9de1-3c9cd41cedab",
+          id: '295a8170-59c1-4462-9de1-3c9cd41cedab',
           list: [1, 2, 3],
         },
       ],
@@ -41,32 +43,32 @@ export default {
         prefferedFramework: 'vue',
         favoriteFood: 'sushi',
         favoriteNumbers: [8, 10, 12],
-      }
-    };
+      },
+    }
   },
   computed: {
     refinedUserData() {
       return {
         name: this.userData.name,
-        food: this.userData.favoriteFood
+        food: this.userData.favoriteFood,
       }
-    }
+    },
   },
   methods: {
     incrementCount(newAmount, event) {
-      console.log(newAmount);
-      console.log(event);
-      this.count += this.optimizedIncrementAmount;
+      console.log(newAmount)
+      console.log(event)
+      this.count += this.optimizedIncrementAmount
     },
     changeName() {
-      this.userData.name = 'Charlie';
-    }
-  }
-
-};
+      this.userData.name = 'Charlie'
+    },
+  },
+}
 </script>
 
 <template>
+  <BaseButton>Cancel</BaseButton>
   <userCard :user="refinedUserData" @change-name="chnage" />
   <base-counter :increment="incrementCount" />
   <hr />

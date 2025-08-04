@@ -2,11 +2,13 @@
 import userCard from './components/user-card.vue'
 import BaseCounter from './components/BaseCounter.vue'
 import BaseButton from './components/base-button.vue'
+import BaseLayout from './components/base-layout.vue'
 export default {
   components: {
     BaseCounter,
     userCard,
     BaseButton,
+    BaseLayout,
   },
   data() {
     return {
@@ -68,8 +70,13 @@ export default {
 </script>
 
 <template>
-  <BaseButton>Cancel</BaseButton>
-  <userCard :user="refinedUserData" @change-name="chnage" />
+  <BaseLayout>
+    <template v-slot:sidebar> Aside </template>
+    <template v-slot:main>
+      <userCard :user="refinedUserData" @change-name="chnage" />
+    </template>
+  </BaseLayout>
+  <BaseButton :left="true"></BaseButton>
   <base-counter :increment="incrementCount" />
   <hr />
   <p v-if="message.length % 2 === 0">Even: {{ message.toUpperCase() }}</p>
